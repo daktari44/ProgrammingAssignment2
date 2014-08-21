@@ -18,7 +18,7 @@ makeCacheMatrix <- function(x = matrix()) {
           ## v is our inverse and is reset to NULL each time the function is called
       v <- NULL                                     
       
-         ##
+         ## set the value of the matrix and the inverse in the global environment
       set <- function(y){
             x <<- y
             v <<- NULL
