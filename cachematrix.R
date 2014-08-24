@@ -13,22 +13,26 @@
 ## global environment
 
 ##  The argument passed into this makeCacheMatrix function is the matrix whose inverse we would like to solve
+##  NB: The function as designed will coerce any argument passed into it into a matrix
 
 makeCacheMatrix <- function(x = matrix()) {
-          ## v is our inverse and is reset to NULL each time the function is called
-      v <- NULL                                     
+         
+      v <- NULL                                        ## v is our inverse variable and is reset to NULL each time the function is called                                   
       
-         ## set the value of the matrix and the inverse in the global environment
+         ## set the value of the matrix and its inverse in the global environment
+      
       set <- function(y){
             x <<- y
             v <<- NULL
       }
          
-      get <- function(){x}                            ## returns the value of the original vector
-      setinverse <- function(inverse){v <<- inverse}  ## stores the value of inverse in the global environment
-      getinverse <- function(){v}                     ## returns the cached value to cacheMatrix when called
+      get <- function(){x}                              ## returns the value of the original vector
+      setinverse <- function(inverse){v <<- inverse}    ## stores the value of inverse in the global environment
+      getinverse <- function(){v}                       ## returns the cached inverse matrix value to cacheMatrix when called
       
+           
            ## return a list of the newly created functions as the main output of the makeCacheMatrix function
+      
       list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)
 
 }
